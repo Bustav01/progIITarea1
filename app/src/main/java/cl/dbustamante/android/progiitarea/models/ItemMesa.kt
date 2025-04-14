@@ -5,6 +5,6 @@ class ItemMesa(
     private val cantidad: Int
 ) {
     fun calcularSubtotal(): Int {
-        return itemMenu.precio * cantidad
+        return itemMenu.precio.toInt() * cantidad
     }
 }
