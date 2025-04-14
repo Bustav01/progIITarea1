@@ -20,7 +20,7 @@ class CuentaMesa (
     }
 
     fun calcularPropina(): Int {
-        return if (aceptaPropina) (calcularTotalSinPropina() * 0.1).toInt() else 0)
+        return if (aceptaPropina) (calcularTotalSinPropina() * 0.1).toInt() else 0
     }
 
     fun calcularTotalConPropina(): Int {
