@@ -1,7 +1,7 @@
 package cl.dbustamante.android.progiitarea.models
 
 class ItemMesa(
-    private val itemMenu: ItemMenu,
+    val itemMenu: ItemMenu,
     private val cantidad: Int
 ) {
     fun calcularSubtotal(): Int {

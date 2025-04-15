@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">ProgIITarea</string>
+    <string name="subtotal_pastel">Subtotal Pastel de Choclo:</string>
+    <string name="subtotal_cazuela">Subtotal Cazuela:</string>
 </resources>

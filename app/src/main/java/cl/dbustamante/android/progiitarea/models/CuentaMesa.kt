@@ -5,6 +5,8 @@ class CuentaMesa (
     private var aceptaPropina: Boolean = true
 ){
     private val items: MutableList<ItemMesa> = mutableListOf()
+    val itemsPublicos: List<ItemMesa>
+        get() = items
 
     fun agregarItem(itemMenu: ItemMenu, cantidad: Int) {
         val itemMesa = ItemMesa(itemMenu, cantidad)
@@ -28,5 +30,16 @@ class CuentaMesa (
     }
     fun activarPropina(valor: Boolean) {
         aceptaPropina = valor
+    }
+
+    fun reemplazarItem(itemMenu: ItemMenu, cantidad: Int) {
+        val index = items.indexOfFirst { it.itemMenu.nombre == itemMenu.nombre }
+        val nuevoItem = ItemMesa(itemMenu, cantidad)
+
+        if (index >= 0) {
+            items[index] = nuevoItem
+        } else {
+            items.add(nuevoItem)
+        }
     }
 }

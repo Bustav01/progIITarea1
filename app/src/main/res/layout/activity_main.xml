@@ -85,7 +85,7 @@
             app:layout_constraintTop_toBottomOf="@+id/txtPlato1" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textViewTotalPastelDeChoclo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="$12.0000"
@@ -93,7 +93,7 @@
             app:layout_constraintTop_toBottomOf="@+id/editTextPastelDeChoclo" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textViewTotalCazuela"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="$10.000"

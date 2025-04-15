@@ -19,6 +19,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var textViewTotalSinPropina: TextView
     private lateinit var textViewPropina: TextView
     private lateinit var textViewTotalConPropina: TextView
+    private lateinit var textViewSubtotalPastel: TextView
+    private lateinit var textViewSubtotalCazuela: TextView
+    private lateinit var textViewTotalPastelDeChoclo: TextView
+    private lateinit var textViewTotalCazuela: TextView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,10 +34,13 @@ class MainActivity : AppCompatActivity() {
         val editTextPastelDeChoclo = findViewById<EditText>(R.id.editTextPastelDeChoclo)
         val editTextCazuela = findViewById<EditText>(R.id.editTextCazuela)
 
-        val textViewTotalSinPropina = findViewById<TextView>(R.id.textViewTotalSinPropina)
-        val textViewPropina = findViewById<TextView>(R.id.textViewPropina)
-        val textViewTotalConPropina = findViewById<TextView>(R.id.textViewTotalConPropina)
+        textViewTotalSinPropina = findViewById(R.id.textViewTotalSinPropina)
+        textViewPropina = findViewById(R.id.textViewPropina)
+        textViewTotalConPropina = findViewById(R.id.textViewTotalConPropina)
         val switchPropina = findViewById<Switch>(R.id.switchPropina)
+        textViewSubtotalPastel = findViewById(R.id.textViewTotalPastelDeChoclo)
+        textViewSubtotalCazuela = findViewById(R.id.textViewTotalCazuela)
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -67,9 +75,13 @@ class MainActivity : AppCompatActivity() {
         val totalSinPropina = cuentaController.obtenerTotalSinPropina()
         val propina = cuentaController.obtenerPropina()
         val totalConPropina = cuentaController.obtenerTotalConPropina()
+        val subtotalPastel = cuentaController.obtenerSubtotal("Pastel de Choclo")
+        val subtotalCazuela = cuentaController.obtenerSubtotal("Cazuela")
 
         textViewTotalSinPropina.text = formatearPesos(totalSinPropina)
         textViewPropina.text = formatearPesos(propina)
         textViewTotalConPropina.text = formatearPesos(totalConPropina)
+        textViewTotalPastelDeChoclo.text = formatearPesos(subtotalPastel)
+        textViewTotalCazuela.text = formatearPesos(subtotalCazuela)
     }
 }
