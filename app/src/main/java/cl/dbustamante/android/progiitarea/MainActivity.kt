@@ -1,6 +1,8 @@
 package cl.dbustamante.android.progiitarea
 
+
 import android.os.Bundle
+import androidx.core.widget.addTextChangedListener
 import android.widget.Switch
 import android.widget.EditText
 import android.widget.TextView
@@ -14,6 +16,9 @@ import java.text.NumberFormat
 
 class MainActivity : AppCompatActivity() {
     private lateinit var  cuentaController: CuentaController
+    private lateinit var textViewTotalSinPropina: TextView
+    private lateinit var textViewPropina: TextView
+    private lateinit var textViewTotalConPropina: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,14 +40,14 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        editTextPastelDeChoclo.addTextChangedListener {
-            val cantidad = it.toString().toIntOrNull() ?: 0
+        editTextPastelDeChoclo.addTextChangedListener { editable ->
+            val cantidad = editable?.toString()?.toIntOrNull() ?: 0
             cuentaController.agregarItem("Pastel de Choclo", "12000", cantidad)
             actualizarTotales()
         }
 
-        editTextCazuela.addTextChangedListener {
-            val cantidad = it.toString().toIntOrNull() ?: 0
+        editTextCazuela.addTextChangedListener { editable ->
+            val cantidad = editable?.toString()?.toIntOrNull() ?: 0
             cuentaController.agregarItem("Cazuela", "10000", cantidad)
             actualizarTotales()
         }
