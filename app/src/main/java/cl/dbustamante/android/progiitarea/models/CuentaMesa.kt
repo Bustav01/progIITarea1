@@ -2,7 +2,7 @@ package cl.dbustamante.android.progiitarea.models
 
 class CuentaMesa (
     val mesa: Int,
-    val aceptaPropina: Boolean = true
+    private var aceptaPropina: Boolean = true
 ){
     private val items: MutableList<ItemMesa> = mutableListOf()
 
@@ -25,5 +25,8 @@ class CuentaMesa (
 
     fun calcularTotalConPropina(): Int {
         return calcularTotalSinPropina() + calcularPropina()
+    }
+    fun activarPropina(valor: Boolean) {
+        aceptaPropina = valor
     }
 }

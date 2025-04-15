@@ -19,4 +19,8 @@ class CuentaController {
     fun obtenerTotalConPropina(): Int {
         return cuentaMesa.calcularTotalConPropina()
     }
+
+    fun setPropinaActiva(valor: Boolean) {
+        cuentaMesa.activarPropina(valor)
+    }
 }

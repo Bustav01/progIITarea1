@@ -2,6 +2,9 @@ package cl.dbustamante.android.progiitarea
 
 import android.os.Bundle
 import android.widget.Switch
+import android.widget.EditText
+import android.widget.TextView
+import java.util.Locale
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -18,6 +21,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         cuentaController = CuentaController()
+        val editTextPastelDeChoclo = findViewById<EditText>(R.id.editTextPastelDeChoclo)
+        val editTextCazuela = findViewById<EditText>(R.id.editTextCazuela)
+
+        val textViewTotalSinPropina = findViewById<TextView>(R.id.textViewTotalSinPropina)
+        val textViewPropina = findViewById<TextView>(R.id.textViewPropina)
+        val textViewTotalConPropina = findViewById<TextView>(R.id.textViewTotalConPropina)
         val switchPropina = findViewById<Switch>(R.id.switchPropina)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -39,7 +48,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         switchPropina.setOnCheckedChangeListener { _, isChecked ->
-            cuentaController.cuentaMesa.aceptaPropina = isChecked
+            cuentaController.setPropinaActiva(isChecked)
             actualizarTotales()
         }
     }
